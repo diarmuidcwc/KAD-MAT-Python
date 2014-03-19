@@ -1,3 +1,27 @@
+#-------------------------------------------------------------------------------
+# Name:        Mat101Shared
+# Purpose:     Class toemulate the structs for the buffer management in the KAD/MAT/101
+#
+# Author:      DCollins
+#
+# Created:     19/03/2014
+#
+# Copyright 2014 Diarmuid Collins
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#-------------------------------------------------------------------------------
+
+
 from ctypes import *
 
 class timespec(ctypes.Structure):
@@ -60,7 +84,7 @@ class m101_header_t(Structure):
 class m101_header_h(Structure):
     _anonymous_ = ("_t1")
     _fields_ = [
-        ("_ti",POINTER(m101_header_t)),
+        ("_t1:",POINTER(m101_header_t)),
     ]
 
 class m101_userBuffer_t(Structure):
@@ -78,4 +102,10 @@ class m101_userBuffer_t(Structure):
         ("irqCount", c_uint),
         ("dataValid", c_uint),
         ("panic_count", c_uint),
+    ]
+
+class m101_userBuffer_h(Structure):
+    _anonymous_ = ("_t1")
+    _fields_ = [
+        ("_t1",POINTER(m101_userBuffer_t)),
     ]
