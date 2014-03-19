@@ -35,6 +35,7 @@ class Mat101GPIO():
             raise Exception
 
         self.BankDirection = ["OUT","OUT"]
+        self.SetBankDirection()
 
 
     def SetBankDirection(self):

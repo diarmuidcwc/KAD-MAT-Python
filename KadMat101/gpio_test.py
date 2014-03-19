@@ -30,18 +30,6 @@ import time
 def main():
     mygpio = gpio.Mat101GPIO()
 
-    mygpio.BankDirection[0] = "OUT"
-    mygpio.BankDirection[1] = "OUT"
-
-    mygpio.SetBankDirection()
-
-    # Just write a count to toggle a few pins
-    for count in xrange(10):
-        data = count % 0x100
-	print "Writing {:8b}".format(data)
-        mygpio.WriteToGPIO(data)
-        time.sleep(1)
-
     # Swich off all pins
     mygpio.WriteToGPIO(0)
     time.sleep(1)
