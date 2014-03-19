@@ -62,11 +62,12 @@ class Mat101GPIO():
         current_state = c_ubyte() # To store the read back value of the current gpio state
         self.libmat101.mat101_gpio_get(byref(current_state))
 
-        gpio_change = 0 # Default to switch off the pin
+        gpio_change = pow(2,7-PinNumber) # Find the pin we want to change 
         if OnNotOff == True:
-            gpio_change = pow(2,PinNumber)
+            set_state = c_ubyte( current_state.value | gpio_change)
+	else:
+            set_state = c_ubyte( current_state.value &  ~gpio_change)
 
-        set_state = c_ubyte( current_state.value | gpio_change)
         self.libmat101.mat101_gpio_set(set_state)
 
 
