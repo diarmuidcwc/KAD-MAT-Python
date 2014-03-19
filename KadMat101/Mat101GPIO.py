@@ -1,6 +1,6 @@
 from ctypes import *
 
-class Mat101GPIO(self):
+class Mat101GPIO():
 
     def __init__(self):
         cdll.LoadLibrary("libmat101.so.1")

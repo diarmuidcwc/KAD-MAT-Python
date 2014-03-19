@@ -25,6 +25,7 @@ def main():
 
     for count in xrange(100):
         data = count % 0x100
+	print "Writing {:8b}".format(data)
         mygpio.WriteToGPIO(data)
         time.sleep(1)
 
