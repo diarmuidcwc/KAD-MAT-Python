@@ -46,13 +46,12 @@ def main():
     mygpio.WriteToGPIO(0)
     time.sleep(1)
 
-<<<<<<< .mine
-=======    # Now switch on the pins one by one
->>>>>>> .theirs    print "Switching on the pins one by one"
+    # Now switch on the pins one by one
+    print "Switching on the pins one by one"
     for count in xrange(8):
         mygpio.SetPin(count,True);
         time.sleep(1)
-    
+
     print "Switching off the pins one by one"
     for count in xrange(8):
         mygpio.SetPin(count,False);
